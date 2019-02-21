@@ -2,15 +2,21 @@ body {
     width: 100%;
     height: 100%;
     background-color: #eee;
-    font-family: "Arial", Bold;
-}
-#app-container{
-    padding:0 16px;
-}
-.light-mode{
-    background-color: #F1F9FF;
-}
-.dark-mode{
-    background-color: #7FC4FD;
+    
 }
 
+p, h1, h2, h3, h4, h5{font-family: arial, bold;}
+
+@media only screen and (max-width: 600px) {
+    
+    #app-container{
+        padding:0 16px;
+    }
+    .light-mode{
+        background-color: #F1F9FF;
+    }
+    .dark-mode{
+        background-color: #7FC4FD;
+    }
+
+}

@@ -7,9 +7,7 @@ import { Container } from 'react-materialize';
 
 const Main = () => (
   <main>
-    <Container>
-      <News />
-    </Container>
+    <News />
   </main>  
 );
 

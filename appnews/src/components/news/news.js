@@ -5,6 +5,8 @@ import { Row, Col, Card } from 'react-materialize';
 // Importando componentes de news
 import NewsThumbs from '../news_thumbs/news_thumbs'
 import NewsPreview from '../news_preview/news_preview'
+import '../news_thumbs/stylesheet/news_thumbs.css';
+import '../news_thumbs/stylesheet/news_thumbs_switch.scss';
 
 const News = () => (
   <Row>

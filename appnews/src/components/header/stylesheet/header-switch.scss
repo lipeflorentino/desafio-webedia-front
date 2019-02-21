@@ -4,6 +4,8 @@ $water-blue: #BCE0FD;
 $lighter-blue: #F1F9FF;
 $white: #FFFFFF;
 
+@media only screen and (max-width: 600px) {
+    
 /* HEADER LIGHT MODE */
 
 .light-mode{.header-info {.switch {label {color: $darker-blue;}}}}
@@ -25,3 +27,5 @@ $white: #FFFFFF;
 .switch label input[type=checkbox]:checked+.lever:after{left:39px;}
 .switch label input[type=checkbox]:checked+.lever p.p-light{opacity:0;}
 .switch label input[type=checkbox]:checked+.lever p.p-dark{color:$white;opacity:1;left: 5px;}
+
+}
