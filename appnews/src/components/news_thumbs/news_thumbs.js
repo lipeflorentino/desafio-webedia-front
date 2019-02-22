@@ -3,7 +3,8 @@ import React, { Component, Fragment } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
-import img from '../../images/img.jpg';
+import Carousel from 're-carousel';
+import IndicatorDots from './javascript/indicator-dots.js';
 
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
@@ -45,36 +46,32 @@ class NewsThumbs extends Component {
           return <p>Loading ...</p>;
         }
          
-        return [
+        return (
             <Fragment>
-                {news.map((n, key) =>
-                          
-                    <Card key={key} className='small' 
-                        header={<CardTitle image={url + n.imagem}><Icon small>favorite</Icon>
-                        <p>{n.num_likes}</p></CardTitle>}>
-                        <p>{n.descricao}</p>
-                        <div>{console.log(n.imagem)}</div>
-
-                        <div className="n-infos">
-                            <span className="n-titulo">
-                                <Icon small>public</Icon> 
-                                <p>{n.titulo} </p>
-                            </span>
-                            <span className="n-data">
-                                <Icon small>access_time</Icon> 
-                                <p>{n.data_publicacao}</p>
-                            </span>
-                        </div>
-                    </Card>            
-                )}            
+                <Carousel loop className="mycarousel" widgets={[IndicatorDots]}>
+                    {
+                        news.map((n, key) =>                        
+                            <Card key={key} className='small' 
+                                header={<CardTitle image={url + n.imagem}><Icon small>favorite</Icon>
+                                <p>{n.num_likes}</p></CardTitle>}>
+                                <p>{n.descricao}</p>
+                                <div className="n-infos">
+                                    <span className="n-titulo">
+                                        <Icon small>public</Icon> 
+                                        <p>{n.titulo} </p>
+                                    </span>
+                                    <span className="n-data">
+                                        <Icon small>access_time</Icon> 
+                                        <p>{n.data_publicacao}</p>
+                                    </span>
+                                </div>
+                            </Card>                      
+                        )
+                    }   
+                </Carousel>
             </Fragment>
-        ];
+        );
     }
-    
-    /*const myThumbs = () => (
-        
-    );*/
-
 }
 
 export default NewsThumbs;

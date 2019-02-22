@@ -6,11 +6,11 @@ $white: #FFFFFF;
 
 @media only screen and (max-width: 600px) {
     
-/* NEWS_THUMBS LIGHT MODE */
+/* NEWS_THUMBS DARK MODE */
 
 .dark-mode main .row .col .card {background-color: #2699FB;}    
 .dark-mode main .row .col .card .card-content {color: #FFFFFF;}    
-    
+.dark-mode main .row .col div .mydots span{background-color:white !important;}    
     
     
 }

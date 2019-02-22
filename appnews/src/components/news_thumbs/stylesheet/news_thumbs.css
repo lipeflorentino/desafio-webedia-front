@@ -63,3 +63,12 @@
 .n-data p{
     padding:5px;
 }
+.mycarousel{
+    overflow: hidden;
+    width: 100%;
+    min-height: 350px;
+    position: absolute
+}
+.mydots span{
+    background-color:#BCE0FD !important;
+}
