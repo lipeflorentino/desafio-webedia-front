@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "base-64": "^0.1.0",
     "material-design-icons": "^3.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-image-file": "^0.3.0",
     "react-materialize": "^2.6.0",
     "react-scripts": "2.1.5"
   },

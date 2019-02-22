@@ -1,60 +1,78 @@
 // Importando o React
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
 import img from '../../images/img.jpg';
 
-const api = 'https://hn.algolia.com/api/v1/search?query=';
-
-const qry = 'redux';
+const url = 'data:image/jpeg;base64,';
+const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 
 class NewsThumbs extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-          hits: [],
+            news: [],
+            isLoading: false,
+            error: null,
         };
     }
 
     componentDidMount() {
-        fetch(api + qry)
-          .then(response => response.json())
-          .then(data => this.setState({ hits: data.hits }));
+        this.setState({ isLoading: true });
+        fetch(api)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error('Something went wrong ...');
+            }
+          })
+          .then(data => this.setState({ news: data, isLoading: false  }))
+          .catch(error => this.setState({ error, isLoading: false }));
+        
     }
     
     render() {
-        const { hits } = this.state;
-            
-        return (
-            <ul>
-                {hits.map(hit =>
-                  <li key={hit.objectID}>
-                    <a href={hit.url}>{hit.title}</a>
-                  </li>
-                )}
-            </ul>
-        );
+        const { news, isLoading, error } = this.state;
+        
+        if (error) {
+          return <p>{error.message}</p>;
+        }
+        
+        if (isLoading) {
+          return <p>Loading ...</p>;
+        }
+         
+        return [
+            <Fragment>
+                {news.map((n, key) =>
+                          
+                    <Card key={key} className='small' 
+                        header={<CardTitle image={url + n.imagem}><Icon small>favorite</Icon>
+                        <p>{n.num_likes}</p></CardTitle>}>
+                        <p>{n.descricao}</p>
+                        <div>{console.log(n.imagem)}</div>
+
+                        <div className="n-infos">
+                            <span className="n-titulo">
+                                <Icon small>public</Icon> 
+                                <p>{n.titulo} </p>
+                            </span>
+                            <span className="n-data">
+                                <Icon small>access_time</Icon> 
+                                <p>{n.data_publicacao}</p>
+                            </span>
+                        </div>
+                    </Card>            
+                )}            
+            </Fragment>
+        ];
     }
     
     /*const myThumbs = () => (
-        <Card className='small'
-            header={<CardTitle image={img}><Icon small>favorite</Icon>
-            <p>60</p></CardTitle>}>
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
-
-            <div className="n-infos">
-                <span className="n-titulo">
-                    <Icon small>public</Icon> 
-                    <p>Primeira Noticia</p>
-                </span>
-                <span className="n-data">
-                    <Icon small>access_time</Icon> 
-                    <p>01/02/2019</p>
-                </span>
-            </div>
-        </Card>
+        
     );*/
 
 }
