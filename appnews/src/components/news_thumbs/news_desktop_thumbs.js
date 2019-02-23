@@ -3,6 +3,8 @@ import React, { Component, Fragment } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 
+import './stylesheet/news_thumbs_desktop.css';
+
 const url = 'data:image/jpeg;base64,';
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 
@@ -51,9 +53,13 @@ class NewsDesktopThumbs extends Component {
                             <Col key={key} m={6}>
                                 <div className="dt-img">
                                     <img src={url + n.imagem}></img>
-                                    <p>{n.num_likes}</p>
+                                    <div className="dt-title">
+                                        <Icon small>favorite</Icon>
+                                        <p>{n.num_likes}</p>
+                                    </div>
                                 </div>
                                 <div className="n-infos">
+                                    <h3>{n.titulo} </h3>
                                     <p>{n.descricao}</p>
                                     <span className="n-titulo">
                                         <Icon small>public</Icon> 
@@ -63,6 +69,7 @@ class NewsDesktopThumbs extends Component {
                                         <Icon small>access_time</Icon> 
                                         <p>{n.data_publicacao}</p>
                                     </span>
+                                    <div className="clearfix"></div>
                                 </div>                                 
                             </Col>
                         )
