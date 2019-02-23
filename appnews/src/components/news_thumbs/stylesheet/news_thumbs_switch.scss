@@ -14,3 +14,12 @@ $white: #FFFFFF;
     
     
 }
+
+@media only screen and (min-width: 680px) {
+    
+/* NEWS_THUMBS DARK MODE */
+
+.dark-mode main .row .col .nt-container .row .col .n-infos,
+.dark-mode main .row .col .nt-container .row .col .n-infos p{color: #FFFFFF;}       
+    
+}

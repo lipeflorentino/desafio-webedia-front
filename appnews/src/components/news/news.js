@@ -10,6 +10,8 @@ import Header from '../header/header'
 import NewsThumbs from '../news_thumbs/news_thumbs';
 import NewsDesktopThumbs from '../news_thumbs/news_desktop_thumbs';
 import NewsPreview from '../news_preview/news_preview';
+import NewsPreviewDesktop from '../news_preview/news_preview_desktop';
+// Importando css e scss
 import '../news_thumbs/stylesheet/news_thumbs.css';
 import '../news_thumbs/stylesheet/news_thumbs_switch.scss';
 import '../news_preview/stylesheet/news_preview.css';
@@ -34,7 +36,12 @@ const News = () => (
         </Col>
         
         <Col m={4} s={12}>
-            
+            <MediaQuery query="(max-device-width: 600px)">
+                <NewsPreview />
+            </MediaQuery>
+            <MediaQuery query="(min-device-width: 680px)">
+                <NewsPreviewDesktop />
+            </MediaQuery>
         </Col>
     </Row>  
 );

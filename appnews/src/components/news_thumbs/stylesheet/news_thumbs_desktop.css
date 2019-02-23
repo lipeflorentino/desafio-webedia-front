@@ -35,7 +35,8 @@
         position: relative;
         padding: 12px 0;
         color:#2699FB;
-        margin: 20px 0;
+        margin: 10px 0;
+        font-size: 14px;        
     }
     .n-infos h3{
         font-size: 1.3rem;

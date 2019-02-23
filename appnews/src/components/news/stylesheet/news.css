@@ -14,15 +14,12 @@
     .desktop-thumbs{
         display: block;
     }
+    .dark-mode main .row .col .nt-container{
+        background-color: #7FC4FD;
+    }
+    
 }
 
 @media only screen and (max-width: 600px) {
-    .mobile-thumbs{
-        display: block;
-        visibility: visible;        
-    }
-    .desktop-thumbs{
-        display: none;
-        visibility: hidden;   
-    }
+    
 }
