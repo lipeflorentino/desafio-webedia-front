@@ -14,7 +14,9 @@
     "react-infinite-loader": "^1.0.3",
     "react-infinite-scroll-component": "^4.5.0",
     "react-materialize": "^2.6.0",
-    "react-scripts": "2.1.5"
+    "react-responsive": "^6.1.1",
+    "react-scripts": "2.1.5",
+    "superagent": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,24 +1,24 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 680px) {
     
-    /* HEADER mobile css */
-                
-    .header-info h1{
-        font-size: 25px;
-        width: 50%;
-        float: left;
+    /* HEADER desktop css */
+    
+    .header-info .hi-title h1{
+        font-size: 30px;
         font-weight: bold;
-    }   
-    .hi-title{
-        width: 50%;
     }
-    .hi-title hr{        
-        display: none;
+    .hi-title{        
+        width: 100%;
+        float: left;        
+    }
+    .hi-title hr{
+        margin-top: 48px;
+        color:#F1F9FF;
     }
     .header-info .switch{
         padding-left: 6rem;
-        margin: 2rem 0px 1.68rem 0;
-        width: 50%;
-        float: right;
+        margin: 8px 0;
+        width: 100%;
+        float: left;
     }
 
     .header-info .switch label {

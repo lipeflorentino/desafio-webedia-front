@@ -5,8 +5,6 @@ import React, { Component } from "react";
 // Importando os components necessários da lib react-materialize
 import { Row, Col } from 'react-materialize';
 
-
-
 const api = 'https://wlzdm90cda.execute-api.us-east-1.amazonaws.com/v1/news';
 const url = 'data:image/jpeg;base64,';
 
@@ -22,8 +20,11 @@ class NewsPreview extends Component {
         };
     }
 
-    componentDidMount() {
-        this.setState({ isLoading: true });
+    componentDidMount() {        
+        this.setState({ isLoading: true });  
+        this.loadData();
+    }
+    loadData = () => {
         fetch(api)
           .then(response => {
             if (response.ok) {
@@ -34,19 +35,11 @@ class NewsPreview extends Component {
           })
           .then(data => this.setState({ news: data, isLoading: false  }))
           .catch(error => this.setState({ error, isLoading: false }));
-        
     }
-    
-    fetchMoreData = () => {
-        setTimeout(() => {
-          this.setState({
-            news: this.state.news
-          });
-        }, 1500);
-    };
 
     render() {
         const { news, isLoading, error } = this.state;
+        console.log(news);
         
         if (error) {
           return <p>{error.message}</p>;
@@ -60,7 +53,7 @@ class NewsPreview extends Component {
           <div className="news-preview">
             <InfiniteScroll
                 dataLength={this.state.news.length} 
-                next={this.fetchMoreData}
+                next={this.loadData}
                 hasMore={true}
                 loader={<h4>Loading...</h4>}
                 endMessage={

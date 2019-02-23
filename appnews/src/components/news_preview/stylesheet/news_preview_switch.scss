@@ -1,0 +1,10 @@
+$darker-blue: #2699FB;
+$dark-blue: #7FC4FD;
+$water-blue: #BCE0FD;
+$lighter-blue: #F1F9FF;
+$white: #FFFFFF;
+
+.dark-mode main .row .col .news-preview div .infinite-scroll-component .np-infos{
+    background-color: $darker-blue;
+    color:$white;
+}

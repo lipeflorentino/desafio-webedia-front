@@ -1,3 +1,28 @@
 .clearfix{
     clear: both;
 }
+
+
+@media only screen and (min-width: 680px) {
+    .nt-container{
+        padding:40px;
+        background-color: #FFFFFF;
+    }
+    .mobile-thumbs{
+        display: none;
+    }
+    .desktop-thumbs{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-thumbs{
+        display: block;
+        visibility: visible;        
+    }
+    .desktop-thumbs{
+        display: none;
+        visibility: hidden;   
+    }
+}
